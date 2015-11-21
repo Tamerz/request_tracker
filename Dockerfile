@@ -17,10 +17,10 @@ RUN curl -L http://install.perlbrew.pl | bash
 
 # Install RT's Perl
 RUN /opt/rt_perl/bin/perlbrew install perl-${rt_perl_version}
-RUN /opt/rt_perl/bin/perlbrew switch perl-${rt_perl_version}
+ENV PATH /opt/rt_perl/perls/perl-${rt_perl_version}/bin:${PATH}
 
 # Install cpanminus
-RUN wget -q -O - https://cpanmin.us | /opt/rt_perl/perls/perl-5.22.0/bin/perl - App::cpanminus
+RUN wget -q -O - https://cpanmin.us | /opt/rt_perl/perls/perl-${rt_perl_version}/bin/perl - App::cpanminus
 
 # Install RT
 ENV RT_FIX_DEPS_CMD /opt/rt_perl/perls/perl-${rt_perl_version}/bin/cpanm
