@@ -28,5 +28,5 @@ RUN cd /root
 RUN curl -O https://download.bestpractical.com/pub/rt/release/rt-${rt_version}.tar.gz
 RUN tar xzf rt-${rt_version}.tar.gz
 RUN cd rt-${rt_version}
-RUN ./configure --enable-graphviz --enable-gd --with-db-type=Pg --with-web-user=apache --with-web-group=apache
+RUN /rt-${rt_version}/configure --enable-graphviz --enable-gd --with-db-type=Pg --with-web-user=apache --with-web-group=apache
 RUN make fixdeps
