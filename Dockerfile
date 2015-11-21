@@ -17,6 +17,10 @@ RUN curl -L http://install.perlbrew.pl | bash
 
 # Install RT's Perl
 RUN /opt/rt_perl/bin/perlbrew install perl-${rt_perl_version}
+RUN /opt/rt_perl/bin/perlbrew switch perl-${rt_perl_version}
+
+# Install cpanminus
+RUN curl -L https://cpanmin.us | perl - App::cpanminus
 
 # Install RT
 RUN cd ~
