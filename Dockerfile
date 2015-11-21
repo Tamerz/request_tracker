@@ -7,8 +7,8 @@ ENV rt_version 4.2.12
 # Update the system
 RUN yum update -y
 
-# Install Perl
-RUN yum install -y perl tar bzip2 gcc wget
+# Install Dependences
+RUN yum install -y perl tar bzip2 gcc wget gd-devel graphviz-devel expat-devel postgresql-devel
 
 # Install PerlBrew
 RUN mkdir -p /opt/rt_perl
